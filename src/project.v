@@ -18,12 +18,10 @@ module tt_um_npu (
 
     barrel_shifter_8bit shift_inst (ui_in, uio_in[2:0], uo_out);
 
-    // Not used input pins assigned to 0
-    assign uio_in[7:3] = 0;
 
-  // All output pins must be assigned. If not used, assign to 0.
+  // All input/output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
-  assign uio_oe  = 0;
+assign uio_oe = {8{&uio_in[7:3]}};
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n, 1'b0};
