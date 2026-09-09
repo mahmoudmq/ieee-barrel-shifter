@@ -66,3 +66,9 @@ mux2X1  ins_00 (.in0(y[0]),.in1(y[1]),.sel(ctrl[0]),.out(out[0]));
 
 endmodule
 
+module mux2X1( in0,in1,sel,out);
+input in0,in1;
+input sel;
+output out;
+assign out=(sel)?in1:in0;
+endmodule
