@@ -18,6 +18,9 @@ module tt_um_npu (
 
     barrel_shifter_8bit shift_inst (ui_in, uio_in[2:0], uo_out);
 
+    // Not used input pins assigned to 0
+    assign uio_in[7:3] = 0;
+
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
   assign uio_oe  = 0;
