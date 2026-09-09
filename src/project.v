@@ -16,7 +16,7 @@ module tt_um_npu (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-    barrel_shifter_8bit inst(ui_in[7:0], uio_in[2:0], uo_out[7:0]);
+    barrel_shifter_8bit inst(ui_in, uio_in[2:0], uo_out);
 
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
