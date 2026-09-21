@@ -14,4 +14,10 @@ jobs:
           submodules: recursive
 
       - name: Build docs
+        id: build_docs_first
+        continue-on-error: true
+        uses: TinyTapeout/tt-gds-action/docs@ttihp26b
+
+      - name: Build docs (retry)
+        if: steps.build_docs_first.outcome == 'failure'
         uses: TinyTapeout/tt-gds-action/docs@ttihp26b
